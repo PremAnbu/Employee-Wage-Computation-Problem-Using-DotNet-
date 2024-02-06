@@ -8,37 +8,36 @@ namespace EmployeeWage
 {
     public class EmployeeMain
     {
+       const int partTime = 0;
+       const int fullTime = 1;
+       const int empRatePerHour = 20;
+       const int NoOfWorkingDays = 2;
         public static void Main(String[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
-            Random random = new Random();
-            int atten = random.Next(0,2);
-            if (atten == 0)
-                Console.WriteLine("Employee Absent");
-            else
-                Console.WriteLine("Employee Present");
-            Console.WriteLine("Enter \n 1.Full time Employee \n 2.Part time Employee");
-            int choice=int .Parse(Console.ReadLine());
-            switch (choice)
+            int empHours = 0, empWage = 0, totalEmpWage = 0;
+            for (int i = 0; i < NoOfWorkingDays; i++)
             {
-                case 1: Console.WriteLine("Enter Wage Per Hour");
-                    int WagePerHour=int .Parse(Console.ReadLine());
-                    Console.WriteLine("Enter Full Day Hour");
-                    int FullDayHour = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Full time employee income is {0}",WagePerHour*FullDayHour);
-                    break;
-                case 2:
-                    Console.WriteLine("Enter Wage Per Hour");
-                    int WagePerHour1 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Enter Part TIme Hour");
-                    int PartTImeHour = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Part time employee income is {0}", WagePerHour1 * PartTImeHour);
-                    break;
-                default:
-                    Console.WriteLine("Invalid input");
-                    break;
+                Random random = new Random();
+                int atten = random.Next(0, 2);
+           
+                switch (atten)
+                {
+                    case partTime:
+                        empHours = 40;
+                        break;
+                    case fullTime:
+                        empHours = 80;
+                        break;
+                    default:
+                        empHours = 0;
+                        break;
+                }
+                empWage = empHours * empRatePerHour;
+                totalEmpWage =totalEmpWage + empWage;
+                Console.WriteLine("Employee wage : {0}", empWage);
             }
-         
+            Console.WriteLine("Total Employee wage : {0}", totalEmpWage);
         }
     }
 }
