@@ -17,18 +17,28 @@ namespace EmployeeWage
                 Console.WriteLine("Employee Absent");
             else
                 Console.WriteLine("Employee Present");
-            CalculateEmployeeWage(20,8);
-            CalculatePartTimeEmployeeWage(20,8);
-        }
-        public static void CalculateEmployeeWage(int wagePerHour,int fullDayHour)
-        {
-            int totalWage=wagePerHour*fullDayHour;
-            Console.WriteLine("Total Wage for Full time Employee is {0}", totalWage);
-        }
-        public static void CalculatePartTimeEmployeeWage(int wagePerHour, int partTimeHour)
-        {
-            int totalWage = wagePerHour * partTimeHour;
-            Console.WriteLine("Total Wage For Part Time Employee is {0}", totalWage);
+            Console.WriteLine("Enter \n 1.Full time Employee \n 2.Part time Employee");
+            int choice=int .Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1: Console.WriteLine("Enter Wage Per Hour");
+                    int WagePerHour=int .Parse(Console.ReadLine());
+                    Console.WriteLine("Enter Full Day Hour");
+                    int FullDayHour = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Full time employee income is {0}",WagePerHour*FullDayHour);
+                    break;
+                case 2:
+                    Console.WriteLine("Enter Wage Per Hour");
+                    int WagePerHour1 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter Part TIme Hour");
+                    int PartTImeHour = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Part time employee income is {0}", WagePerHour1 * PartTImeHour);
+                    break;
+                default:
+                    Console.WriteLine("Invalid input");
+                    break;
+            }
+         
         }
     }
 }
