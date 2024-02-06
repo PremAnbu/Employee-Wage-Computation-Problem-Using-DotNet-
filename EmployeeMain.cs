@@ -13,12 +13,13 @@ namespace EmployeeWage
        const int empRatePerHour = 20;
        const int NoOfWorkingDays = 2;
         const int maxHoursInMonth = 10;
-        public static void Main(String[] args)
+        public static void CalculateWage()
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program on Master Branch");
             int empHours = 0, totalEmpHour = 0, totalWorkingDays = 0;
             while (totalEmpHour<=maxHoursInMonth && totalWorkingDays<NoOfWorkingDays)
             {
+                totalWorkingDays++;
                 Random random = new Random();
                 int atten = random.Next(0, 2);
                 switch (atten)
@@ -37,6 +38,10 @@ namespace EmployeeWage
                 Console.WriteLine("Employee Days : {0} Employee Hours {1}",totalWorkingDays,empHours );
             }
             Console.WriteLine("Total Employee wage : {0}", totalEmpHour * empRatePerHour);
+        }
+        public static void Main()
+        {
+            CalculateWage();
         }
     }
 }
